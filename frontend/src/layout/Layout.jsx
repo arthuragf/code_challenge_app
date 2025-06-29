@@ -1,5 +1,5 @@
 import "react"
 
-export const Layout = () => {
+export default function Layout() {
     return <></>
 }

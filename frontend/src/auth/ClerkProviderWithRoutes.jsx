@@ -8,7 +8,7 @@ if (!PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key')
 }
 
-export default const ClerkProviderWithRoutes = ({children}) => {
+export default function ClerkProviderWithRoutes ({children}) {
     return (
         <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
             <BrowserRouter>{children}</BrowserRouter>

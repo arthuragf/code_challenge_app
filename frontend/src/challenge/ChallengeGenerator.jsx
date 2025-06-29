@@ -1,5 +1,5 @@
 import "react"
 
-export const ChallengeGenerator = () => {
+export default function ChallengeGenerator() {
     return <></>
 }

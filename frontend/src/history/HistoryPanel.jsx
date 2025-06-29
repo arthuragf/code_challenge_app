@@ -1,5 +1,5 @@
 import "react"
 
-export const HistoryPanel = () => {
+export default function HistoryPanel() {
     return <></>
 }

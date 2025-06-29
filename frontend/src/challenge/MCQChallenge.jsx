@@ -1,5 +1,5 @@
 import "react"
 
-export const MCQChallenge = () => {
+export default function MCQChallenge() {
     return <></>
 }

@@ -10,16 +10,16 @@ export default function MCQChallenge({challenge, showExplanation = false}) {
         challenge.options
         
     const handleOptionSelect = (index) => {
-        if (selectedOption) !== null) return;
+        if (selectedOption !== null) return
         setSelectedOption(index)
         setShouldShowExplanation(true)
     }
 
     const getOptionClass = (index) => {
-        if (selectedOption === null) return "option";}
-        if (index === challenge.correct_answer_id) return "option correct";
-        if (index === selectedOption && index !== challenge.correct_answer_id)  return "option incorrect";
-        return "option";
+        if (selectedOption === null) return "option"
+        if (index === challenge.correct_answer_id) return "option correct"
+        if (index === selectedOption && index !== challenge.correct_answer_id)  return "option incorrect"
+        return "option"
     }
     
     return <div className="challenge-display">
@@ -36,9 +36,9 @@ export default function MCQChallenge({challenge, showExplanation = false}) {
             ))}
         </div>
         {shouldShowExplanation && selectedOption !== null && (
-            <div className="explanation">}
+            <div className="explanation">
                 <p><strong>Explanation:</strong> {challenge.explanation}</p>
             </div>
         )}
-            
+    </div>
 }

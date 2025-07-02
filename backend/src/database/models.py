@@ -6,6 +6,7 @@ from datetime import datetime
 engine = create_engine('sqlite:///example.db', echo=True)
 Base = declarative_base()
 
+
 class Challenge(Base):
     __tablename__ = 'challenges'
     
@@ -18,6 +19,7 @@ class Challenge(Base):
     correct_answer_id = Column(Integer, nullable=False)
     explanation = Column(String, nullable=False)
     
+    
 class ChallengeQuota (Base):
     __tablename__ = 'challenge_quotas'
     
@@ -29,6 +31,7 @@ class ChallengeQuota (Base):
 Base.metadata.create_all(engine)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 
 def get_db():
     db = SessionLocal()

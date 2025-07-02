@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-clerk_sdk = Clerk(beare_auth=os.getenv("CLERK_SECRET_KEY"))
+clerk_sdk = Clerk(bearer_auth=os.getenv("CLERK_SECRET_KEY"))
 
 def authenticate_user(request):
     """

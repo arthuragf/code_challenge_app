@@ -31,7 +31,9 @@ class ChallengeRequest(BaseModel):
 
 @router.post("/generate-challenge")
 async def generate_challenge(request: ChallengeRequest, 
-                              db: Session = Depends(get_db)):
+                                request_obj: Request,
+                                db: Session = Depends(get_db)
+):
     """
     Generates a new challenge based on the specified difficulty.
     
@@ -43,7 +45,7 @@ async def generate_challenge(request: ChallengeRequest,
         dict: A dictionary containing the generated challenge details.
     """
     try:
-        user_details = authenticate_user(request)
+        user_details = authenticate_user(request_obj)
         user_id = user_details.get("user_id")
     
         if not user_id:
@@ -65,7 +67,10 @@ async def generate_challenge(request: ChallengeRequest,
             db=db,
             difficulty=request.difficulty,
             created_by=user_id,
-            **challenge_data
+            title=challenge_data.get("title"),
+            options=json.dumps(challenge_data.get("options")),
+            correct_answer_id=challenge_data.get("correct_answer_id"),
+            explanation=challenge_data.get("explanation")
         )
         
         # Decrement the user's challenge quota
